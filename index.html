@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reversing-Number</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #a4508b;
+        background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        border: 3px solid rgb(102, 235, 81);
+        border-radius: 25px;
+        width: 400px;
+        height: 300px;
+        background-color: #b3cdd1;
+        background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+      }
+      .main:hover {
+        background-color: #7cffcb;
+        background-image: linear-gradient(315deg, #7cffcb 0%, #74f2ce 74%);
+      }
+      .contain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        margin: 1em 0;
+        width: 180px;
+        height: 25px;
+        border-radius: 10px;
+        background-color: yellowgreen;
+      }
+      button {
+        border-radius: 15px;
+        height: 30px;
+        font-weight: bold;
+        background-color: #ff4e00;
+        background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+      }
+      button:hover {
+        font-size: 15px;
+        border-radius: 35px;
+      }
+      p {
+        font-size: 20px;
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <h2>Enter your Number here</h2>
+      <div class="contain">
+        <input type="number" id="input" />
+        <button id="calculate">Reverse Number</button>
+        <p>The Result is...</p>
+        <p id="output"></p>
+      </div>
+    </div>
+    <script>
+      let btn = document.getElementById("calculate");
+      btn.addEventListener("click", function () {
+        let inp = document.getElementById("input");
+        let num = parseInt(inp.value);
+
+        let op = reverseNum(num);
+        let p = document.getElementById("output");
+        p.innerText = op;
+      });
+
+      function reverseNum(num) {
+        let op = 1;
+
+        while (num > 0) {
+          let single_digit = num % 10;
+          num = Math.floor(num / 10);
+          op = op * 10 + single_digit;
+        }
+
+        op = op.toString();
+
+        op = op.substring(1);
+        return op;
+      }
+    </script>
+  </body>
+</html>
